@@ -1,0 +1,104 @@
+body {
+  background: #f5f7fb;
+  min-height: 100vh;
+}
+
+.card {
+  border: none;
+  border-radius: 8px;
+}
+
+.btn {
+  border-radius: 6px;
+}
+
+.form-control, .form-select {
+  border-radius: 6px;
+}
+
+/* Плавные переходы для всех интерактивных элементов */
+.btn,
+.form-control,
+.nav-link,
+.card {
+  transition: all 0.3s ease;
+}
+
+/* Hover на кнопках — лёгкое увеличение + тень */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Focus на полях ввода — подсветка рамки */
+.form-control:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+/* Появление карточек — fade-in + сдвиг вверх */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Навбар — плавное изменение цвета ссылок */
+.navbar .nav-link {
+  transition: color 0.2s ease;
+}
+
+.navbar .nav-link:hover {
+  color: #ffc107 !important;
+}
+
+/* Flash-сообщения — появление сверху */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.alert {
+  animation: slideDown 0.4s ease-out;
+}
+
+/* Бейджи — пульсация (для «Новая») */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.badge.bg-secondary {
+  animation: pulse 2s infinite;
+}
+
+/* Убираем анимацию для пользователей с prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
